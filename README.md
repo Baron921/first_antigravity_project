@@ -1,59 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Global Jobs - Laravel Job Board 🚀
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Un portail de recrutement complet et moderne construit avec **Laravel 11+** et **PostgreSQL**, bénéficiant d'une interface graphique professionnelle entièrement calquée sur le célèbre template **JobBox**.
 
-## About Laravel
+Cette application met en relation des entreprises cherchant à recruter et des candidats à la recherche de nouvelles opportunités.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌟 Fonctionnalités Principales
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Pour les Entreprises (Recruteurs)
+- **Tableau de Bord Dédié** : Suivi des annonces publiées et du volume de candidatures.
+- **Publication d'Offres** : Éditeur complet pour publier des annonces (Titre, Lieu, Salaire, Description).
+- **Gestion des Candidatures (ATS)** : 
+  - Visualisation des profils ayant postulé.
+  - Téléchargement sécurisé du CV (PDF/Word) des candidats.
+  - Système de décision en un clic (Accepter ✅ ou Refuser ❌).
 
-## Learning Laravel
+### Pour les Candidats
+- **Exploration des Emplois** : Interface de recherche fluide avec filtres visuels (Design JobBox).
+- **Candidature Rapide** : Formulaire permettant de joindre un message personnalisé et de téléverser son CV.
+- **Suivi des Candidatures** : Espace personnel pour voir en temps réel l'avancée de ses candidatures (En attente, Acceptée, Refusée).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Générales & Techniques
+- **Design Premium JobBox** : Intégration complète du CSS JobBox, animations fluides (WOW.js), et responsive design.
+- **Authentification Rôles** : Système de login sur-mesure avec Middleware d'autorisation selon le profil (Company / Candidate).
+- **Base de données PostgreSQL** : Conception robuste avec clés étrangères et suppression en cascade.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🛠️ Stack Technique
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Backend** : PHP 8.2+, Laravel 11/12
+- **Base de données** : PostgreSQL
+- **Frontend** : Blade Templating, JobBox HTML Template (Bootstrap 5, Vanilla JS)
+- **Stockage** : Laravel Storage Local (Pour les CVs)
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🚀 Installation Locale
 
-## Contributing
+Suivez ces étapes pour exécuter le projet sur votre machine locale.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. Prérequis
+- `PHP` (>= 8.2)
+- `Composer`
+- `PostgreSQL` installé et en cours d'exécution.
 
-## Code of Conduct
+### 2. Cloner le projet
+```bash
+git clone https://github.com/Baron921/first_antigravity_project.git
+cd first_antigravity_project
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 3. Installer les dépendances
+```bash
+composer install
+npm install
+```
 
-## Security Vulnerabilities
+### 4. Configuration de l'environnement
+Copiez le fichier de configuration et générez la clé d'application Laravel :
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Configurez votre `.env` pour le connecter à votre instance PostgreSQL locale :
+```env
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=jobboard
+DB_USERNAME=votre_nom_utilisateur
+DB_PASSWORD=votre_mot_de_passe
+```
 
-## License
+### 5. Base de données & Stockage
+Créez les tables (Migrations) et liez le dossier de stockage pour que l'application puisse distribuer visuellement les CVs téléversés :
+```bash
+php artisan migrate
+php artisan storage:link
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 6. Lancer l'application
+Démarrez le serveur de développement Laravel :
+```bash
+php artisan serve
+```
+
+Le site est maintenant accessible à cette adresse : **http://localhost:8000** 🎉
+
+---
+
+## 📸 Aperçu
+
+Le design du site inclut une grande bannière de recherche, des grilles d'emplois sous forme de "Cartes", ainsi qu'une vue détaillée avec barre latérale pour la postulation. L'esthétique met à profit la typographie *Plus Jakarta Sans* et les ombres vectorielles interactives.
+
+---
+**Développé avec passion via Antigravity Assistant.**
