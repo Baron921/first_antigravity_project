@@ -30,7 +30,28 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'role' => 'candidate',
         ];
+    }
+    
+    public function company(): static
+    {
+        $prefixes = ['Benin', 'Dahomey', 'Afri', 'Cotonou', 'Etoile', 'Baobab', 'Zou', 'Mono'];
+        $domaines = ['Technologies', 'Logistics', 'Construction', 'Agri', 'Bank', 'Consulting', 'Services', 'Engineering'];
+        
+        return $this->state(fn (array $attributes) => [
+            'role' => 'company',
+            'company_name' => fake()->randomElement($prefixes) . ' ' . fake()->randomElement($domaines) . ' ' . fake()->companySuffix(),
+            'bio' => fake()->realText(150),
+        ]);
+    }
+    
+    public function candidate(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'candidate',
+            'bio' => fake()->realText(150),
+        ]);
     }
 
     /**

@@ -9,7 +9,7 @@ class JobOfferController extends Controller
 {
     public function index()
     {
-        $jobs = JobOffer::with('company')->where('is_active', true)->latest()->get();
+        $jobs = JobOffer::with('company')->where('is_active', true)->latest()->paginate(9);
         return view('jobs.index', compact('jobs'));
     }
 

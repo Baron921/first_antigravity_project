@@ -5,8 +5,18 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JobOfferController;
 use App\Http\Controllers\ApplicationController;
 
+use App\Http\Controllers\BotController;
+
 // Page d'accueil avec la liste des offres d'emploi
 Route::get('/', [JobOfferController::class, 'index'])->name('home');
+
+// Route Chatbot IA 🤖
+Route::post('/bot/chat', [BotController::class, 'chat'])->name('bot.chat');
+
+// Pages Statiques
+Route::view('/a-propos', 'pages.about')->name('about');
+Route::view('/contact', 'pages.contact')->name('contact');
+Route::view('/pourquoi-nous-choisir', 'pages.why-us')->name('why-us');
 
 // Authentification
 Route::middleware('guest')->group(function () {

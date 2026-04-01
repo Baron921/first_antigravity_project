@@ -65,15 +65,15 @@
           <div class="col-md-2 col-xs-6">
             <h6 class="mb-20">Entreprises</h6>
             <ul class="menu-footer">
-              <li><a href="#">Pourquoi nous choisir</a></li>
-              <li><a href="#">Publier une annonce</a></li>
+              <li><a href="{{ route('why-us') }}">Pourquoi nous choisir</a></li>
+              <li><a href="{{ route('company.jobs.create') }}">Publier une annonce</a></li>
             </ul>
           </div>
           <div class="col-md-2 col-xs-6">
             <h6 class="mb-20">Ressources</h6>
             <ul class="menu-footer">
-              <li><a href="#">À propos</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="{{ route('about') }}">À propos</a></li>
+              <li><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -98,5 +98,6 @@
   <script src="https://jobbox-html-frontend.vercel.app/assets/js/plugins/swiper-bundle.min.js"></script>
   <script src="https://jobbox-html-frontend.vercel.app/assets/js/plugins/counterup.js"></script>
   <script src="https://jobbox-html-frontend.vercel.app/assets/js/main.js?v=4.1"></script>
+    <x-chatbot />
   </body>
 </html>

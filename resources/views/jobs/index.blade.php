@@ -88,6 +88,10 @@
                     </div>
                     @endforelse
                 </div>
+
+                <div class="paginations mt-50 d-flex justify-content-center">
+                    {{ $jobs->links('pagination::bootstrap-5') }}
+                </div>
             </div>
         </div>
     </section>
